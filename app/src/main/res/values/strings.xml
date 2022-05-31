@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WorkoutLog</string>
+    <string name="password">Password</string>
+    <string name="login">LogIn</string>
+    <string name="sign_up">Don\'t have an account?<U>Sign Up</U></string>
+
 </resources>
