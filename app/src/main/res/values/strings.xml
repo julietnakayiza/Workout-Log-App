@@ -3,5 +3,9 @@
     <string name="password">Password</string>
     <string name="login">LogIn</string>
     <string name="sign_up">Don\'t have an account?<U>Sign Up</U></string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
 
 </resources>
