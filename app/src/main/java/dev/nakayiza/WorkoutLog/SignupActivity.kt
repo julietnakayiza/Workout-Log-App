@@ -4,10 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import org.w3c.dom.Text
 
 class SignupActivity : AppCompatActivity() {
     lateinit var tvlog:TextView
@@ -47,28 +51,48 @@ class SignupActivity : AppCompatActivity() {
         }
 
     }
-    fun validate(){
-        var Firstname=etFirstname.text.toString()
-        var Lastname=etLastname.text.toString()
-        var email=etemail.text.toString()
-        var password=etpassword.text.toString()
-        var confirm=etconfirm.text.toString()
-        if (Firstname.isBlank()){
-            tilFirstname.error="Input Firstname"
+    fun validate() {
+        var Firstname = etFirstname.text.toString()
+        var Lastname = etLastname.text.toString()
+        var email = etemail.text.toString()
+        var password = etpassword.text.toString()
+        var confirm = etconfirm.text.toString()
+        if (Firstname.isBlank()) {
+            tilFirstname.error = "Please Input Your Firstname"
         }
-        if (Lastname.isBlank()){
-            tilLastname.error="Input Lastname"
+        if (Lastname.isBlank()) {
+            tilLastname.error = "Please Input Your Lastname"
         }
-        if (email.isBlank()){
-            tilemail.error="Input Email"
+        etemail.addTextChangedListener(object :TextWatcher {
+            override fun onTextChanged(p0: CharSequence?, start: Int, before: Int, after: Int) {
+                tilemail.error=null
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, start: Int, before: Int, after: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+        })
+        if (email.isBlank()) {
+            tilemail.error = "Please Input Your Email"
         }
-        if (password.isBlank()){
-            tilpassword.error="Input password"
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            tilemail.error="Email is invalid"
         }
-        if (confirm.isBlank()){
-            tilconfirm.error="Confirm password"
+        if (password.isBlank()) {
+            tilpassword.error = "Please Input Your password"
+        }
+        if (confirm.isBlank()) {
+            tilconfirm.error = "Please Confirm Your password"
+        }
+        if (confirm !=(password))
+            tilconfirm.error = "Your Password do not match"
         }
     }
 
 
-}
+
+
+
