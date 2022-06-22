@@ -4,23 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wok"
+    android:alpha="0.7"
     tools:context=".SignupActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFirstname"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toTopOf="@+id/tilLastname"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFirstname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:hint="@string/first_name"
             android:inputType="textPersonName" />
@@ -112,26 +113,25 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="24dp"
-        android:text="Sign Up"
+        android:text="@string/sign_upp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilconfirm"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/tilconfirm" />
 
     <TextView
         android:id="@+id/tvlog"
         android:layout_width="135dp"
         android:layout_height="40dp"
         android:layout_marginTop="24dp"
-        android:text="Log In"
+        android:text="@string/log_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnsignupp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imvemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -144,7 +144,7 @@
         app:srcCompat="@drawable/ic_baseline_email_24" />
 
     <ImageView
-        android:id="@+id/ivpassword"
+        android:id="@+id/imvpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -153,11 +153,11 @@
         android:layout_weight="1"
         app:layout_constraintEnd_toStartOf="@+id/tilpassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imvemail"
         app:srcCompat="@drawable/ic_baseline_lock_24" />
 
     <ImageView
-        android:id="@+id/ivoopenpassword"
+        android:id="@+id/imvoopenpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -166,11 +166,11 @@
         android:layout_weight="1"
         app:layout_constraintEnd_toStartOf="@+id/tilconfirm"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivpassword"
+        app:layout_constraintTop_toBottomOf="@+id/imvpassword"
         app:srcCompat="@drawable/ic_baseline_lock_open_24" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imvlastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -183,7 +183,7 @@
         app:srcCompat="@drawable/ic_baseline_person_24" />
 
     <ImageView
-        android:id="@+id/ivfirstname"
+        android:id="@+id/imvfirstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
