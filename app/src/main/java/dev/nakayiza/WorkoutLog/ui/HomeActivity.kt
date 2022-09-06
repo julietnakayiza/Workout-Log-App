@@ -1,11 +1,9 @@
-package dev.nakayiza.WorkoutLog
+package dev.nakayiza.WorkoutLog.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import dev.nakayiza.WorkoutLog.R
 import dev.nakayiza.WorkoutLog.databinding.ActivityHomeBinding
-import dev.nakayiza.WorkoutLog.databinding.ActivityHomeBinding.inflate
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding:ActivityHomeBinding
