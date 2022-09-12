@@ -7,20 +7,12 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import dev.nakayiza.WorkoutLog.APIClient
-import dev.nakayiza.WorkoutLog.api.APIInterface
 import dev.nakayiza.WorkoutLog.databinding.ActivitySignUpBinding
-import dev.nakayiza.WorkoutLog.models.LoginRequest
 import dev.nakayiza.WorkoutLog.models.RegisteRequest
-import dev.nakayiza.WorkoutLog.models.RegisterResponse
 import dev.nakayiza.WorkoutLog.viewmodel.UserViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SignupActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
@@ -45,13 +37,13 @@ class SignupActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        userViewModel.loginLiveData.observe(this, Observer { RegisterResponse->
-            Toast.makeText(baseContext,RegisterResponse?.message,Toast.LENGTH_LONG).show()
+        userViewModel.registerLiveData.observe(this, Observer { RegisterResponse->
+            Toast.makeText(baseContext,RegisterResponse.message,Toast.LENGTH_LONG).show()
             startActivity(Intent(baseContext,HomeActivity::class.java))
         })
-        userViewModel.registerError.observe(this,errorMsg->
-        Toast.makeText(baseContext,errorMsg,Toast.LENGTH_LONG).show()
-        )
+        userViewModel.registerError.observe(this, Observer { errorMsg ->
+            Toast.makeText(baseContext, errorMsg, Toast.LENGTH_LONG).show()
+        })
     }
 
     fun validate() {
@@ -60,6 +52,7 @@ class SignupActivity : AppCompatActivity() {
         var email = binding.etemail.text.toString()
         var password = binding.etpassword.text.toString()
         var confirm = binding.etconfirm.text.toString()
+        var phoneNumber=binding.etphone.text.toString()
 
 
 //        var error = false
@@ -98,8 +91,11 @@ class SignupActivity : AppCompatActivity() {
         if (confirm != (password))
             binding.tilconfirm.error = "Passwords do not match"
 
+        if (phoneNumber!=(phoneNumber))
+            binding.tilphone.error="Input PhoneNumber"
+
         if (!error){
-            val RegisteRequest= RegisteRequest(email,password)
+            val RegisteRequest= RegisteRequest(Firstname,Lastname,email,password,confirm,phoneNumber)
             userViewModel.register(RegisteRequest)
         }
 

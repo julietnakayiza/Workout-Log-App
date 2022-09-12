@@ -9,8 +9,8 @@ import retrofit2.http.POST
 
 interface APIInterface {
     @FormUrlEncoded
-    @POST("CreateUser")
-    fun createUser(@Body registeRequest: RegisteRequest): Response<RegisterResponse>
+    @POST("/register")
+    fun createUser(@Body registerRequest: RegisteRequest): Response<RegisterResponse>
 
     @POST("/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest): Response<LoginResponse>
